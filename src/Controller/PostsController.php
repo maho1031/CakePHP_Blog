@@ -4,6 +4,14 @@ namespace App\Controller;
 
 class PostsController extends AppController {
 
+    // pagination
+    public $paginate = [
+        'limit' => 10,
+        'order' => [
+            'Posts.created' => 'desc'
+        ]
+    ];
+
     // Controllerの初期化時に呼ばれる
     public function initialize(): void
     {
@@ -20,7 +28,7 @@ class PostsController extends AppController {
     {
         // /postsにアクセス
 
-        $posts = $this->Posts->find('all');
+        $posts = $this->paginate($this->Posts->find());
         // dd($posts->toArray());
 
         // dd($posts->toArray());
