@@ -23,32 +23,32 @@ class PostsSeed extends AbstractSeed
         $data = [
             [
                 'title' => '最初の投稿',
-                'description' => '最初の投稿の概要',
+                'description' => "<script>alert('JavaScriptの実行');</script>\n最初の投稿の概要\n改行文章",
                 'body' => '最初の投稿の内容',
                 'published' => 1,
                 'created' => '2023-03-03 10:00:00',
                 'modified' => '2023-03-03 10:00:00'    
             ],
             [
-                'title' => '最初の投稿',
-                'description' => '最初の投稿の概要',
-                'body' => '最初の投稿の内容',
+                'title' => '2番目の投稿',
+                'description' => '2番目の投稿の概要',
+                'body' => '2番目の投稿の内容',
                 'published' => 1,
                 'created' => '2023-03-03 10:00:00',
                 'modified' => '2023-03-03 10:00:00'    
             ],
             [
-                'title' => '最初の投稿',
-                'description' => '最初の投稿の概要',
-                'body' => '最初の投稿の内容',
-                'published' => 1,
+                'title' => '非表示の投稿',
+                'description' => '非表示の投稿の概要',
+                'body' => '非表示の投稿の内容',
+                'published' => 0,
                 'created' => '2023-03-03 10:00:00',
                 'modified' => '2023-03-03 10:00:00'    
             ],
             [
-                'title' => '最初の投稿',
-                'description' => '最初の投稿の概要',
-                'body' => '最初の投稿の内容',
+                'title' => '3番目の投稿',
+                'description' => '3番目の投稿の概要',
+                'body' => '3番目の投稿の内容',
                 'published' => 1,
                 'created' => '2023-03-03 10:00:00',
                 'modified' => '2023-03-03 10:00:00'    
