@@ -20,19 +20,19 @@ class PostsController extends AppController {
     {
         // /postsにアクセス
 
+        $posts = $this->Posts->find('all');
+        // dd($posts->toArray());
+
+        // dd($posts->toArray());
+        $this->set(compact('posts'));
+
     }
 
     public function view($id = null)
     {
         // /viewにアクセス
 
-        $title = 'Cake Blog';
-        // 複数の変数を渡したい場合
-        $this->set(compact(['id', 'title']));
-
-        // 読み込みたいviewファイルを指定する場合
-        $this->render('index');
-
-        
+        $post = $this->Posts->get($id);
+        $this->set(compact(['post']));
     }
 }
