@@ -42,6 +42,19 @@
                     <th><?= __('User') ?></th>
                     <td><?= h($post->user->username) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Tag') ?></th>
+                    <td>
+                    <?php if(!empty($post->tags)): ?>
+                    <?php foreach($post->tags as $tag): ?>
+                        <?= $this->Html->link($tag->title,
+                            ['controller' => 'tags', 'action' => 'view', $tag->id]);
+                        ?>
+                        <?= $tag !== end($post->tags) ? ',' : '' ?>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+                </td>
+            </tr>
             </table>
             <div class="text">
                 <strong><?= __('Description') ?></strong>

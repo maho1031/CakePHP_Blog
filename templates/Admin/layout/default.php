@@ -38,9 +38,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <a href="<?= $this->Url->build('/admin') ?>">Controller Panel</a>
         </div>
         <div class="top-nav-links">
-            <a target="_blank" href="admin/posts">投稿一覧</a>
-            <a target="_blank" href="admin/users">ユーザー一覧</a>
-            <a target="_blank" href="admin/users/logout">ログアウト</a>
+            <a href="admin/posts">投稿</a>
+            <a href="admin/tags">タグ</a>
+            <a href="admin/users">ユーザー一覧</a>
+            <a href="admin/users/logout">ログアウト</a>
         </div>
     </nav>
     <main class="main">
