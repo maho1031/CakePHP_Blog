@@ -224,9 +224,12 @@ msgstr ""
 
 #: ./templates/Admin/Users/view.php:22
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 #: ./templates/layout/error.php:38
 msgid "Back"
-msgstr ""
+msgstr "戻る"
+
+msgid "User"
+msgstr "ユーザー"
 

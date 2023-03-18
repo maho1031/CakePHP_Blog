@@ -44,6 +44,15 @@ class PostsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        // アソシエーションの設定
+        $this->belongsTo('Users');
+
+        $this->belongsToMany('Tags', [
+            'foreignkey' => 'post_id',
+            'tagetForeignKey' => 'tag_id',
+            'joinTable' => 'posts_tags'
+        ]);
     }
 
     /**
@@ -73,6 +82,10 @@ class PostsTable extends Table
         $validator
             ->boolean('published')
             ->notEmptyString('published');
+
+        $validator
+            ->integer('user_id')
+            ->notEmptyString('user_id'); 
 
         return $validator;
     }

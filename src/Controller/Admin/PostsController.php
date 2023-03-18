@@ -13,6 +13,23 @@ use App\Controller\Admin\AdminController;
  */
 class PostsController extends AdminController
 {
+    // pagination
+    public $paginate = [
+        'limit' => 30,
+        'order' => [
+            'created' => 'desc',
+            'id' => 'desc'
+        ],
+        'contain' => 'Users'
+    ];
+
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        $this->loadModel('Users');
+    }
+
     /**
      * Index method
      *
@@ -35,7 +52,7 @@ class PostsController extends AdminController
     public function view($id = null)
     {
         $post = $this->Posts->get($id, [
-            'contain' => [],
+            'contain' => ['Users'],
         ]);
 
         $this->set(compact('post'));
@@ -58,7 +75,9 @@ class PostsController extends AdminController
             }
             $this->Flash->error(__('The post could not be saved. Please, try again.'));
         }
-        $this->set(compact('post'));
+        $users = $this->Users->find('list');
+
+        $this->set(compact('post', 'users'));
     }
 
     /**
@@ -82,7 +101,9 @@ class PostsController extends AdminController
             }
             $this->Flash->error(__('The post could not be saved. Please, try again.'));
         }
-        $this->set(compact('post'));
+        $users = $this->Users->find('list');
+
+        $this->set(compact('post', 'users'));
     }
 
     /**

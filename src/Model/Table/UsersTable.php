@@ -40,10 +40,13 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('id');
+        $this->setDisplayField('username');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        // アソシエーションの設定
+        $this->hasMany('Posts');
     }
 
     /**

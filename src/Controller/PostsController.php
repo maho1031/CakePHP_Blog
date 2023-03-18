@@ -9,7 +9,8 @@ class PostsController extends AppController {
         'limit' => 10,
         'order' => [
             'Posts.created' => 'desc'
-        ]
+        ],
+        'contain' => ['Users', 'Tags']
     ];
 
     // Controllerの初期化時に呼ばれる
@@ -22,7 +23,7 @@ class PostsController extends AppController {
         // $this->viewBuilder()->disableAutoLayout();
 
         // デフォルトのレイアウトを変更
-        $this->viewBuilder()->setLayout('test');
+        // $this->viewBuilder()->setLayout('test');
     }
     public function index()
     {
@@ -40,7 +41,13 @@ class PostsController extends AppController {
     {
         // /viewにアクセス
 
-        $post = $this->Posts->get($id);
+        // $post = $this->Posts->get($id);
+       
+
+        $post = $this->Posts->get($id, [
+            'contain' => ['Users', 'Tags']
+        ]);
+
         $this->set(compact(['post']));
     }
 }
