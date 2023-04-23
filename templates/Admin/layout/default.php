@@ -38,10 +38,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <a href="<?= $this->Url->build('/admin') ?>">Controller Panel</a>
         </div>
         <div class="top-nav-links">
-            <a href="admin/posts">投稿</a>
-            <a href="admin/tags">タグ</a>
-            <a href="admin/users">ユーザー一覧</a>
-            <a href="admin/users/logout">ログアウト</a>
+            <a href="/admin/posts">投稿</a>
+            <a href="/admin/tags">タグ</a>
+            <a href="/admin/users">ユーザー一覧</a>
+            <?php if($this->request->getSession()->read('Auth')) : ?>
+                <?= $this->Html->link(__('logout'), ['controller' => 'Users', 'action' => 'logout']) ?>
+            <?php endif; ?>
         </div>
     </nav>
     <main class="main">

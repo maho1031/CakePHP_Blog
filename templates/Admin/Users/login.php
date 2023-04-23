@@ -11,5 +11,4 @@
     <?= $this->Form->submit('ログイン'); ?>
     <?= $this->Form->end() ?>
 
-    <?= $this->Html->link("Add User", ['action' => 'add']) ?>
 </div>
